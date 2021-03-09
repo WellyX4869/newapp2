@@ -31,6 +31,13 @@ export class HomePage {
     }
   }
 
+  Reset(){
+    this.validasi = "";
+    this.tanggal = null;
+    this.judul = "";
+    this.isi = "";
+  }
+
   Akses(index) {
     this.router.navigate(["/detail/" + index]);
   }

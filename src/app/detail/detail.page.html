@@ -8,27 +8,16 @@
 </ion-header>
 
 <ion-content>
-  <p>
-    Note {{index+1}}
-    <ion-button color="danger" (click)="Favorite()">
-    <img
-      src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_favorite_48px-512.png"
-      style="width:20px; height:20px; color:white;" />
+  <ion-item>
+    <ion-label>
+      <h2>Detail Note {{index+1}}</h2>
+      <h1>{{note[0]}}</h1>
+      <h3>{{note[2]}}</h3>
+      <p>{{note[1]}}</p>
+    </ion-label>
+    <ion-button slot="end" color="danger" (click)="Favorite()">
+      <img src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_favorite_48px-512.png"
+        style="width:20px; height:20p;"/>
     </ion-button>
-  </p>
-
-  <table border="0">
-    <tr>
-      <td><label for="judulText">Judul</label></td>
-      <td>: {{note[0]}}</td>
-    </tr>
-    <tr>
-      <td><label for="isiText">Isi</label></td>
-      <td>: {{note[1]}}</td>
-    </tr>
-    <tr>
-      <td><label for="tanggalBro">Tanggal</label></td>
-      <td>: {{note[2]}}</td>
-    </tr>
-  </table>
+  </ion-item>
 </ion-content>

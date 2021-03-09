@@ -8,22 +8,30 @@
 </ion-header>
 
 <ion-content>
-  <p>LIST FAVORITE NOTES</p>
-  <div *ngFor="let item of fav; let i = index;">
-    <p><b>Notes Favorite {{i+1}}</b></p>
-    <table border="0">
-      <tr>
-        <td><label for="judulText">Judul</label></td>
-        <td>: {{item[0]}}</td>
-      </tr>
-      <tr>
-        <td><label for="isiText">Isi</label></td>
-        <td>: {{item[1]}}</td>
-      </tr>
-      <tr>
-        <td><label for="tanggalBro">Tanggal</label></td>
-        <td>: {{item[2]}}</td>
-      </tr>
-    </table>
-  </div>
+  <section *ngIf="fav.length <= 0">
+    <ion-item>
+      <ion-label>
+        <h2>There are no favorite notes yet!</h2>
+      </ion-label>
+    </ion-item>
+  </section>
+  <section *ngIf="fav.length > 0">
+    <ion-list>
+      <ion-list-header>
+        List Favorite Notes
+      </ion-list-header>
+      <div *ngFor="let item of fav; let i = index;">
+        <ion-item>
+          <ion-label>
+            <h1>{{item[0]}}</h1>
+            <h2>{{item[2]}}</h2>
+            <p>{{item[1]}}</p>
+          </ion-label>
+          <ion-button slot="end" expand="block" color="success" (click)="Akses(i)">
+            Akses<br>Note ini
+          </ion-button>
+        </ion-item>
+      </div>
+    </ion-list>
+  </section>
 </ion-content>

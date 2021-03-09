@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GlobalVarService } from '../global-var.service';
 
 @Component({
@@ -8,11 +9,14 @@ import { GlobalVarService } from '../global-var.service';
 })
 export class FavoritePage implements OnInit {
 
-  constructor(public globalvar: GlobalVarService) { }
+  constructor(private router: Router, public globalvar: GlobalVarService) { }
 
   fav = [];
   ngOnInit() {
     this.fav = this.globalvar.GetFavorite();
   }
 
+  Akses(index){
+    this.router.navigate(["/detail/" + index]);
+  }
 }
