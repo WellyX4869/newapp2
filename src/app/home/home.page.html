@@ -1,8 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Input
     </ion-title>
+    <ion-button slot="end" (click)="AksesFavorite()">Favorite</ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -13,8 +14,50 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <table border="0">
+      <tr>
+        <td><label for="judulText">Judul</label></td>
+        <td><input type="text" [(ngModel)]="judul" id="judulText" /></td>
+      </tr>
+      <tr>
+        <td><label for="isiText">Isi</label></td>
+        <td>
+          <textarea name="message" [(ngModel)]="isi" rows="5" cols="20"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="tanggalBro">Tanggal</label></td>
+        <td>
+          <input type="date" [(ngModel)]="tanggal" id="tanggalBro" placeholder="dd-mm-yyyy" />
+        </td>
+      </tr>
+    </table>
+    
+    <br />
+    <ion-button (click)="Tambah()">Tambah Note</ion-button> <span style="color:red;"> {{validasi}}</span>
+    <br />
+    
+    <p>LIST NOTES</p>
+    <div *ngFor="let item of notes; let i = index;">
+      <table border="0">
+        <tr>
+          <td><b>Notes {{i+1}}</b></td>
+          <td><ion-button (click)="Akses(i)">Akses Note ini</ion-button></td>
+        </tr>
+        <tr>
+          <td><label for="judulText">Judul</label></td>
+          <td>: {{item[0]}}</td>
+        </tr>
+        <tr>
+          <td><label for="isiText">Isi</label></td>
+          <td>: {{item[1]}}</td>
+        </tr>
+        <tr>
+          <td><label for="tanggalBro">Tanggal</label></td>
+          <td>: {{item[2]}}</td>
+        </tr>
+      </table>
+    
+      <br />
+    </div>
 </ion-content>
